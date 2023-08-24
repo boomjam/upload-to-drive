@@ -88,8 +88,9 @@ function uploadToDrive(name, path) {
     }
   })
   .then(res => {
-    actions.setOutput(fileLink, `https://drive.google.com/file/d/${res.data.id}/view?usp=sharing`)
-    actions.info('File uploaded successfully')
+    const resultLink = `https://drive.google.com/file/d/${res.data.id}/view?usp=sharing`
+    actions.setOutput(fileLink, resultLink)
+    actions.info(`File uploaded successfully: ${resultLink}`)
   })
   .catch(e => {
     actions.error('Upload failed');
